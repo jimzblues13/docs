@@ -17,6 +17,10 @@
   },
   "topbarLinks": [
     {
+      "name":"Home",
+      "url": ""
+    },
+    {
       "name": "Support",
       "url": "mailto:hi@mintlify.com"
     }
