@@ -33,7 +33,8 @@
     {
       "name": "API Reference",
       "icon": "code",
-      "url": "https://soca.ai"
+      "openapi": "/path/to/openapi.json",
+      "url": "api-reference"
     }
   ],
   "navigation": [
