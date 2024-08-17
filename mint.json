@@ -26,8 +26,8 @@
     }
   ],
   "topbarCtaButton": {
-    "name": "Dashboard",
-    "url": "https://dashboard.mintlify.com"
+    "name": "Platform",
+    "url": "https://genesist.soca.ai/signin"
   },
   "anchors": [
     {
