@@ -46,7 +46,7 @@
       "group": "Get Started",
       "pages": [
         "introduction",
-        "quickstart",
+        "platform_overview",
         "development"
       ]
     },
