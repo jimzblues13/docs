@@ -48,14 +48,13 @@
     {
       "group": "General",
       "pages": [
-        "general/genesist_works",
         {
-                "group": "submenu",
-                "pages": [
-                  "general/our_platform",
-                  "general/multimodal"
-                  ]
-            },
+          "group": "How Genesist Works",
+          "pages": [
+            "general/our_platform",
+            "general/multimodal"
+          ]
+        },
         "general/enterprise",
         "general/support",
         "general/status"
