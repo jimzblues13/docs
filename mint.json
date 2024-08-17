@@ -38,7 +38,7 @@
     {
       "name": "API Reference",
       "icon": "code",
-      "pages": "api-reference"
+      "url": "api-reference"
     }
   ],
   "navigation": [
