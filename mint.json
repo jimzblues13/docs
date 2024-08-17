@@ -80,6 +80,15 @@
         "workspace/knowledge_sharing",
         "workspace/settings"
       ]
+    },
+    {
+      "group": "Settings",
+      "pages": [
+        "settings/knowledges",
+        "settings/personalizations",
+        "settings/controls",
+        "settings/general"
+      ]
     }
   ],
   "footerSocials": {
