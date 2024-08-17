@@ -55,7 +55,13 @@
             "general/multimodal"
           ]
         },
-        "general/enterprise",
+        {
+          "group": "Enterprise",
+          "pages": [
+            "general/enterprise",
+            "general/onprem_deplyment"
+          ]
+        },
         "general/support",
         "general/status"
       ]
