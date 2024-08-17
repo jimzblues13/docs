@@ -59,7 +59,7 @@
     {
       "group": "General",
       "pages": [
-        "how genesist works",
+        "general/genesist_works",
         "essentials/code",
         "essentials/images",
         "essentials/settings",
