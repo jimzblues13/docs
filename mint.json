@@ -64,12 +64,21 @@
         "autoflow/actions"
       ]
     },
-        {
+    {
       "group": "Dashboard Collection",
       "pages": [
         "dashboard/save_charts",
         "dashboard/create_new",
         "dashboard/add_chart"
+      ]
+    },
+     {
+      "group": "Workspace",
+      "pages": [
+        "workspace/members",
+        "workspace/usage",
+        "workspace/knowledge_sharing",
+        "workpsace/settings"
       ]
     }
   ],
