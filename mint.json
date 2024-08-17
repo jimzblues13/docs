@@ -50,8 +50,8 @@
       "pages": [
         "general/genesist_works",
         {
-                "group": "general/our_platform",
-                "pages": "general/multimodal"
+                "page1": "general/our_platform",
+                "page2": "general/multimodal"
             },
         "general/enterprise",
         "general/support",
