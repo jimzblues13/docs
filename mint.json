@@ -18,7 +18,7 @@
   "topbarLinks": [
     {
       "name":"Home",
-      "url": ""
+      "url": "https://dashboard.mintlify.com"
     },
     {
       "name": "Support",
