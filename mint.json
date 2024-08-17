@@ -31,11 +31,6 @@
   },
   "anchors": [
     {
-      "name": "Documentation",
-      "icon": "book-open-cover",
-      "url": "https://mintlify.com/docs"
-    },
-    {
       "name": "API reference",
       "icon": "code",
       "url": "https://mintlify.com/community"
