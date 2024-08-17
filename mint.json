@@ -46,25 +46,22 @@
       ]
     },
     {
-      "group": "Essentials",
-      "pages": [
-        "essentials/markdown",
-        "essentials/code",
-        "essentials/images",
-        "essentials/settings",
-        "essentials/navigation",
-        "essentials/reusable-snippets"
-      ]
-    },
-    {
       "group": "General",
       "pages": [
         "general/genesist_works",
-        "essentials/code",
-        "essentials/images",
-        "essentials/settings",
-        "essentials/navigation",
-        "essentials/reusable-snippets"
+        "general/enterprise",
+        "general/support",
+        "general/status"
+      ]
+    },
+    {
+      "group": "Autoflow",
+      "pages": [
+        "autoflow/input_node",
+        "autoflow/output_node",
+        "autoflow/knowledge_bases",
+        "autoflow/triggers",
+        "autoflow/actions"
       ]
     }
   ],
