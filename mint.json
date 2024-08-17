@@ -31,9 +31,14 @@
   },
   "anchors": [
     {
+      "name": "Documentation",
+      "icon": "book-open-cover",
+      "url": "https://mintlify.com/docs"
+    },
+    {
       "name": "API Reference",
       "icon": "code",
-      "pages": "api-reference/introduction"
+      "pages": "api-reference"
     }
   ],
   "navigation": [
