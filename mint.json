@@ -59,7 +59,7 @@
           "group": "Enterprise",
           "pages": [
             "general/enterprise",
-            "general/onprem_deplyment"
+            "general/onprem_deployment"
           ]
         },
         "general/support",
