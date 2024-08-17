@@ -33,7 +33,6 @@
     {
       "name": "API Reference",
       "icon": "code",
-      "openapi": "/path/to/openapi.json",
       "url": "api-reference"
     }
   ],
@@ -50,6 +49,10 @@
       "group": "General",
       "pages": [
         "general/genesist_works",
+        {
+                "pages": "our_platform",
+                "Pages": "multimodal"
+            },
         "general/enterprise",
         "general/support",
         "general/status"
