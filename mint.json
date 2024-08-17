@@ -29,7 +29,7 @@
     "name": "Platform",
     "url": "https://genesist.soca.ai/signin"
   },
-  "topAnchor": [
+  "anchors": [
     {
       "name": "API Reference",
       "icon": "code",
