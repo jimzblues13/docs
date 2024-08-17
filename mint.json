@@ -18,11 +18,11 @@
   "topbarLinks": [
     {
       "name":"Home",
-      "url": "https://dashboard.mintlify.com"
+      "url": "https://soca.ai"
     },
     {
       "name": "Support",
-      "url": "mailto:hi@mintlify.com"
+      "url": "mailto:support@soca.ai"
     }
   ],
   "topbarCtaButton": {
