@@ -89,6 +89,18 @@
         "settings/controls",
         "settings/general"
       ]
+    },
+    {
+      "group": "Bossman",
+      "pages": [
+        "bossman/dashboard",
+        "bossman/user_management",
+        "bossman/employee_management",
+        "bossman/ws_management",
+        "bossman/cbs",
+        "bossman/billing",
+        "bossman/log_act"
+      ]
     }
   ],
   "footerSocials": {
