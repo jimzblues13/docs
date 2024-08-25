@@ -71,7 +71,15 @@
       "pages": [
         "autoflow/input_node",
         "autoflow/output_node",
-        "autoflow/knowledge_bases",
+       {
+          "group": "Knowledge Bases",
+          "pages": [
+            "autoflow/documents",
+            "autoflow/tables",
+            "autoflow/audio",
+            "autoflow/url"
+          ]
+        },
         "autoflow/triggers",
         "autoflow/actions"
       ]
