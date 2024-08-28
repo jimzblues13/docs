@@ -45,13 +45,19 @@
         "tutorials"
       ]
     },
-        {
-      "group": "API Reference",
+    {
+      "group": "API Documentation",
       "pages": [
         "api-reference/introduction",
         "api-reference/endpoint/create",
         "api-reference/endpoint/get",
         "api-reference/endpoint/delete"
+      ]
+    },
+    {
+      "group": "Knowledges",
+      "pages": [
+        "api-reference/knowledges/upload"
       ]
     },
     {
