@@ -58,6 +58,18 @@
       ]
     },
     {
+      "group": "Chatbot",
+      "pages": [
+        "api-reference/chatbot/create"
+      ]
+    },
+    {
+      "group": "Voicebot",
+      "pages": [
+        "api-reference/voicebot/create"
+      ]
+    },
+    {
       "group": "General",
       "pages": [
         {
