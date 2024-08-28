@@ -75,7 +75,10 @@
     {
       "group": "Voicebot",
       "pages": [
-        "api-reference/voicebot/create"
+        "api-reference/voicebot/get",
+        "api-reference/voicebot/add",
+        "api-reference/voicebot/update",
+        "api-reference/voicebot/delete"
       ]
     },
     {
