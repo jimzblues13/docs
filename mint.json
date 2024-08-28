@@ -43,7 +43,8 @@
         "introduction",
         "platform_overview",
         "tutorials",
-        "api-reference/introduction"
+        "api-reference/introduction",
+        "api-reference/endpoint/create"
       ]
     },
     {
