@@ -154,7 +154,6 @@
         "bossman/user_management",
         "bossman/employee_management",
         "bossman/ws_management",
-        "bossman/cbs",
         "bossman/billing",
         "bossman/log_act"
       ]
