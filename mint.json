@@ -42,7 +42,8 @@
       "pages": [
         "introduction",
         "platform_overview",
-        "tutorials"
+        "tutorials",
+        "api-reference"
       ]
     },
     {
