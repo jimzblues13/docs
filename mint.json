@@ -42,7 +42,12 @@
       "pages": [
         "introduction",
         "platform_overview",
-        "tutorials",
+        "tutorials"
+      ]
+    },
+        {
+      "group": "API Reference",
+      "pages": [
         "api-reference/introduction",
         "api-reference/endpoint/create",
         "api-reference/endpoint/get",
