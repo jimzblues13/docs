@@ -65,7 +65,11 @@
     {
       "group": "Chatbot",
       "pages": [
-        "api-reference/chatbot/create"
+        "api-reference/chatbot/create",
+        "api-reference/chatbot/get",
+        "api-reference/chatbot/list",
+        "api-reference/chatbot/update",
+        "api-reference/chatbot/delete"
       ]
     },
     {
