@@ -62,13 +62,7 @@
       "post": {
         "description": "This endpoint is used to send a prompt (command or question) to the message processing system and retrieve its response.",
         "requestBody": {
-          "description": "```
-{
-  "firstName": "John",
-  "lastName": "Smith",
-  "age": 25
-}
-```",
+          "description": "Plant to add to the store",
           "content": {
             "application/json": {
               "schema": {
