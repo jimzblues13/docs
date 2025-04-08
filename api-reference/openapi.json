@@ -60,7 +60,7 @@
         }
       },
       "post": {
-        "description": "Creates a new plant in the store",
+        "description": "This endpoint is used to send a prompt (command or question) to the message processing system and retrieve its response.",
         "requestBody": {
           "description": "Plant to add to the store",
           "content": {
