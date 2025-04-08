@@ -53,14 +53,9 @@
       ]
     },
     {
-      "group": "Knowledges",
+      "group": "Chats",
       "pages": [
-        "api-reference/knowledges/upload",
-        "api-reference/knowledges/get",
-        "api-reference/knowledges/list",
-        "api-reference/knowledges/update",
-        "api-reference/knowledges/delete"
-        
+        "api-reference/chats/post"
       ]
     },
     {
