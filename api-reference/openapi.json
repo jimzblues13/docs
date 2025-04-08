@@ -21,7 +21,7 @@
   "paths": {
     "/send_message": {
       "post": {
-        "description": "This endpoint sends a message to the AI Agent and retrieves its response.",
+        "description": "This endpoint is used to send a prompt (command or question) to the message processing system and retrieve its response.",
         "requestBody": {
           "description": "Message payload to be sent to the AI Agent.",
           "content": {
