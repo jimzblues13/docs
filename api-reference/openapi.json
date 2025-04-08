@@ -2,7 +2,7 @@
   "openapi": "3.0.1",
   "info": {
     "title": "OpenAPI Soca AI",
-    "description": "A sample API that uses a plant store as an example to demonstrate features in the OpenAPI specification",
+    "description": "An API for sending messages and retrieving responses from the AI Agent.",
     "license": {
       "name": "MIT"
     },
@@ -21,13 +21,13 @@
   "paths": {
     "/send_message": {
       "post": {
-        "description": "This endpoint is used to send a prompt (command or question) to the message processing system and retrieve its response.",
+        "description": "This endpoint sends a message to the AI Agent and retrieves its response.",
         "requestBody": {
-          "description": "",
+          "description": "Message payload to be sent to the AI Agent.",
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/chats"
+                "$ref": "#/components/schemas/SendMessageRequest"
               }
             }
           },
@@ -35,17 +35,17 @@
         },
         "responses": {
           "200": {
-            "description": "plant response",
+            "description": "Response from the AI Agent.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Plant"
+                  "$ref": "#/components/schemas/SendMessageResponse"
                 }
               }
             }
           },
           "400": {
-            "description": "unexpected error",
+            "description": "Invalid input or missing fields.",
             "content": {
               "application/json": {
                 "schema": {
@@ -60,55 +60,54 @@
   },
   "components": {
     "schemas": {
-      "Plant": {
-        "required": [
-          "name"
-        ],
+      "SendMessageRequest": {
         "type": "object",
+        "required": ["session_id", "sender", "message"],
         "properties": {
-          "name": {
-            "description": "The name of the plant",
-            "type": "string"
+          "session_id": {
+            "type": "string",
+            "description": "Conversation session ID to maintain context."
           },
-          "tag": {
-            "description": "Tag to specify the type",
-            "type": "string"
+          "sender": {
+            "type": "string",
+            "description": "Indicates the sender of the message (\"user\" or \"agent\")."
+          },
+          "message": {
+            "type": "string",
+            "description": "The actual message sent to the AI."
           }
         }
       },
-      "NewPlant": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/Plant"
+      "SendMessageResponse": {
+        "type": "object",
+        "properties": {
+          "reply": {
+            "type": "string",
+            "description": "AI Agent's response."
           },
-          {
-            "required": [
-              "id"
-            ],
-            "type": "object",
-            "properties": {
-              "id": {
-                "description": "Identification number of the plant",
-                "type": "integer",
-                "format": "int64"
-              }
-            }
+          "session_id": {
+            "type": "string",
+            "description": "Same session ID as in the request."
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Response timestamp in ISO 8601 format."
           }
-        ]
+        }
       },
       "Error": {
-        "required": [
-          "error",
-          "message"
-        ],
         "type": "object",
+        "required": ["error", "message"],
         "properties": {
           "error": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "description": "Error code."
           },
           "message": {
-            "type": "string"
+            "type": "string",
+            "description": "Error message description."
           }
         }
       }
