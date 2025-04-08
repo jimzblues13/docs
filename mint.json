@@ -59,25 +59,6 @@
       ]
     },
     {
-      "group": "Chatbot",
-      "pages": [
-        "api-reference/chatbot/create",
-        "api-reference/chatbot/get",
-        "api-reference/chatbot/list",
-        "api-reference/chatbot/update",
-        "api-reference/chatbot/delete"
-      ]
-    },
-    {
-      "group": "Voicebot",
-      "pages": [
-        "api-reference/voicebot/get",
-        "api-reference/voicebot/add",
-        "api-reference/voicebot/update",
-        "api-reference/voicebot/delete"
-      ]
-    },
-    {
       "group": "General",
       "pages": [
         {

@@ -34,27 +34,3 @@ This endpoint is used to send a prompt (command or question) to the message proc
 | reply      | string | AI Agent's response                         |
 | session_id | string | Same session ID as in the request           |
 | timestamp  | string | Response timestamp in ISO 8601 format       |
-
-## Example Usage
-```json
-POST /send_message
-
-Headers:
-{
-  "Content-Type": "application/json",
-  "Authorization": "Bearer <your_token>"
-}
-
-Body:
-{
-  "session_id": "abc123",
-  "sender": "user",
-  "message": "Hello!"
-}
-
-Response:
-{
-  "reply": "Hi there! How can I assist you?",
-  "session_id": "abc123",
-  "timestamp": "2025-04-08T12:34:56Z"
-}
