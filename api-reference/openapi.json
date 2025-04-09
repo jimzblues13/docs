@@ -46,7 +46,7 @@
         },
         "responses": {
           "200": {
-            "description": "Response from the AI Agent.",
+            "description": "Chat has been sent.",
             "content": {
               "application/json": {
                 "schema": {
@@ -84,17 +84,27 @@
       "SendMessageResponse": {
         "type": "object",
         "properties": {
-          "reply": {
-            "type": "string",
-            "description": "AI Agent's response."
+          "status": {
+            "type": "boolean",
+            "description": "Chat has been delivered successfully"
           },
-          "session_id": {
-            "type": "string",
-            "description": "Same session ID as in the request."
+          "data": {
+            "type": "object",
+            "description": "Same session ID as in the request.",
+            "properties": {
+              "status":{
+                "type": "integer",
+              }
+              ,"message": {
+                "type": "string",
+              }
+              ,"data": {
+                "type": "string"
+              }
+            }
           },
-          "timestamp": {
+          "message": {
             "type": "string",
-            "format": "date-time",
             "description": "Response timestamp in ISO 8601 format."
           }
         }
