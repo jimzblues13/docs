@@ -107,17 +107,6 @@
         "settings/general"
       ]
     },
-    {
-      "group": "Bossman",
-      "pages": [
-        "bossman/dashboard",
-        "bossman/user_management",
-        "bossman/employee_management",
-        "bossman/ws_management",
-        "bossman/billing",
-        "bossman/log_act"
-      ]
-    }
   ],
   "footerSocials": {
     "github": "https://github.com/socaai",
