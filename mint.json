@@ -82,8 +82,8 @@
     {
       "group": "Studio",
       "pages": [
-        "studio/input_node",
-        "studio/output_node",
+        "studio/conversation_node",
+        "studio/global_prompt",
        {
           "group": "Knowledge Bases",
           "pages": [
@@ -93,8 +93,9 @@
             "studio/url"
           ]
         },
-        "studio/triggers",
-        "studio/actions"
+        "studio/actions",
+        "studio/conditions",
+        "studio/webhook"
       ]
     },
     {
