@@ -105,8 +105,9 @@
         "settings/personalizations",
         "settings/controls",
         "settings/general"
-      ]
-    }
+        ]
+      }
+  ],
   "footerSocials": {
     "github": "https://github.com/socaai",
     "linkedin": "https://www.linkedin.com/company/soca-ai/",
