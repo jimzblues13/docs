@@ -73,20 +73,12 @@
     "schemas": {
       "SendMessageRequest": {
         "type": "object",
-        "required": ["session_id", "sender", "message"],
+        "required": ["prompt"],
         "properties": {
-          "session_id": {
+          "prompt": {
             "type": "string",
-            "description": "Conversation session ID to maintain context."
+            "description": "Chat send by users to Soca AI."
           },
-          "sender": {
-            "type": "string",
-            "description": "Indicates the sender of the message (\"user\" or \"agent\")."
-          },
-          "message": {
-            "type": "string",
-            "description": "The actual message sent to the AI."
-          }
         }
       },
       "SendMessageResponse": {
