@@ -27,7 +27,7 @@
             "name": "agent_id",
             "in": "path",
             "required": true,
-            "description": "Description",
+            "description": "The unique identifier of a Soca AI agent created in the Studio.",
             "schema": {
               "type": "string"
             }
