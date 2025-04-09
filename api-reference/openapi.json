@@ -19,9 +19,20 @@
     }
   ],
   "paths": {
-    "/chat": {
+    "/chat/{agent_id}": {
       "post": {
         "description": "This endpoint is used to send a prompt (command or question) to the message processing system and retrieve its response.",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "description": "Description",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "requestBody": {
           "description": "Message payload to be sent to the AI Agent.",
           "content": {
