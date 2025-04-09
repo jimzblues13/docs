@@ -80,7 +80,7 @@
       ]
     },
     {
-      "group": "Autoflow",
+      "group": "Studio",
       "pages": [
         "autoflow/input_node",
         "autoflow/output_node",
