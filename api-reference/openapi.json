@@ -19,7 +19,7 @@
     }
   ],
   "paths": {
-    "/send_message": {
+    "/chat": {
       "post": {
         "description": "This endpoint is used to send a prompt (command or question) to the message processing system and retrieve its response.",
         "requestBody": {
