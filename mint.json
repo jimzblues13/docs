@@ -99,12 +99,11 @@
       ]
     },
     {
-      "group": "Settings",
+      "group": "Organization",
       "pages": [
-        "settings/knowledges",
-        "settings/personalizations",
-        "settings/controls",
-        "settings/general"
+        "organization/general",
+        "organization/members",
+        "organization/billing"
         ]
       }
   ],
