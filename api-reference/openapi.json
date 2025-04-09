@@ -10,7 +10,7 @@
   },
   "servers": [
     {
-      "url": "https://api.soca.ai"
+      "url": "https://stg-api-genesist.soca.ai/v1/chat/"
     }
   ],
   "security": [
@@ -113,9 +113,10 @@
       }
     },
     "securitySchemes": {
-      "bearerAuth": {
-        "type": "http",
-        "scheme": "bearer"
+      "private_key": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "private_key"
       }
     }
   }
