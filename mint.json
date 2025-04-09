@@ -82,19 +82,19 @@
     {
       "group": "Studio",
       "pages": [
-        "autoflow/input_node",
-        "autoflow/output_node",
+        "studio/input_node",
+        "studio/output_node",
        {
           "group": "Knowledge Bases",
           "pages": [
-            "autoflow/documents",
-            "autoflow/tables",
-            "autoflow/audio",
-            "autoflow/url"
+            "studio/documents",
+            "studio/tables",
+            "studio/audio",
+            "studio/url"
           ]
         },
-        "autoflow/triggers",
-        "autoflow/actions"
+        "studio/triggers",
+        "studio/actions"
       ]
     },
     {
