@@ -10,7 +10,7 @@
   },
   "servers": [
     {
-      "url": "https://api-genesist.soca.ai/v1"
+      "url": "https://api.soca.ai/v1"
     }
   ],
   "security": [
