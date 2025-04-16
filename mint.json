@@ -84,7 +84,7 @@
       "pages": [
         "studio/conversation_node",
         "studio/global_prompt",
-        "studio/knowledge",
+        "studio/knowledge_based",
        {
           "group": "Knowledge Bases",
           "pages": [
