@@ -85,15 +85,6 @@
         "studio/conversation_node",
         "studio/global_prompt",
         "studio/knowledge",
-       {
-          "group": "Knowledge Bases",
-          "pages": [
-            "studio/documents",
-            "studio/tables",
-            "studio/audio",
-            "studio/url"
-          ]
-        },
         "studio/actions",
         "studio/conditions",
         "studio/webhook"
