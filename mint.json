@@ -86,7 +86,6 @@
         "studio/global_prompt",
         "studio/knowledge",
         "studio/actions",
-        "studio/conditions",
         "studio/webhook"
       ]
     },
