@@ -27,7 +27,7 @@
   ],
   "topbarCtaButton": {
     "name": "Platform",
-    "url": "https://console.soca.ai/"
+    "url": "https://genesist.soca.ai/signin"
   },
   "anchors": [
     {
@@ -56,6 +56,15 @@
       "group": "Chats",
       "pages": [
         "api-reference/chats/post"
+      ]
+    },
+    {
+      "group": "Sessions",
+      "pages": [
+        "api-reference/sessions/create_session",
+        "api-reference/sessions/list_session",
+        "api-reference/sessions/detail_session",
+        "api-reference/sessions/delete_session"
       ]
     },
     {

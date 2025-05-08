@@ -10,7 +10,7 @@
   },
   "servers": [
     {
-      "url": "https://api.soca.ai/v1"
+      "url": "https://stg-api-genesist.soca.ai/v1"
     }
   ],
   "security": [
@@ -60,7 +60,215 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Error"
+                  "$ref": "#/components/schemas/Error400"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/session/{agent_id}": {
+      "get": {
+        "description": "Retrieves a paginated list of an agent's conversation sessions.",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "description": "The unique identifier of a Soca AI agent created in the Studio.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful retrieval of session list.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SendMessageResponseListSession"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid agent_id format or invalid query parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error400"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Invalid or missing private_key in the header.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error401"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "description": "Creates a new conversation session for a given agent.",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "description": "The unique identifier of a Soca AI agent created in the Studio.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Indicates that the session was created successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateSession"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid agent_id format or invalid query parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error400"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Invalid or missing private_key in the header.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error401"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/session/chat/{agent_id}/{session_id}": {
+      "get": {
+        "description": "Retrieves the paginated chat history of a specific session for an agent.",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "description": "The unique identifier of a Soca AI agent created in the Studio.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "session_id",
+            "in": "path",
+            "required": true,
+            "description": "Identifier of the specific session.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns the chat history for the specified session.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChatHistoryResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid agent_id format or invalid query parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error400"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Invalid or missing private_key in the header.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error401"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/session/{agent_id}/{session_id}": {
+      "delete": {
+        "description": "Deletes a specific conversation session.",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "description": "The unique identifier of a Soca AI agent created in the Studio.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "session_id",
+            "in": "path",
+            "required": true,
+            "description": "The unique identifier of the specific session.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Indicates that the session was successfully deleted.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SendMessageResponseDeleteSession"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid agent_id format or invalid query parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error400"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Invalid or missing private_key in the header.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error401"
                 }
               }
             }
@@ -73,14 +281,105 @@
     "schemas": {
       "SendMessageRequest": {
         "type": "object",
-        "required": ["prompt"],
+        "required": ["prompt","session_id"],
         "properties": {
           "prompt": {
             "type": "string",
             "description": "Chat send by users to Soca AI."
           },
+          "session_id": {
+            "type": "string",
+            "description": "Session ID for this message."
+          }
         }
       },
+      "ChatHistoryResponse": {
+    "type": "object",
+    "properties": {
+      "status": {
+        "type": "boolean"
+      },
+      "message": {
+        "type": "string"
+      },
+      "data": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/ChatItem"
+        }
+      }
+    }
+  },
+  "ChatItem": {
+    "type": "object",
+    "properties": {
+      "uuid": {
+        "type": "string",
+        "format": "uuid"
+      },
+      "question": {
+        "type": "string"
+      },
+      "answers": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/AnswerItem"
+        }
+      },
+      "files": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "created_at": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "updated_at": {
+        "type": "string",
+        "format": "date-time"
+      }
+    }
+  },
+  "AnswerItem": {
+    "type": "object",
+    "properties": {
+      "uuid": {
+        "type": "string",
+        "format": "uuid"
+      },
+      "description": {
+        "type": "string"
+      },
+      "doc_source": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "chart": {
+        "type": "array",
+        "items": {
+          "type": "object"
+        }
+      },
+      "files": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "created_at": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "updated_at": {
+        "type": "string",
+        "format": "date-time"
+      }
+    }
+  },
       "SendMessageResponse": {
         "type": "object",
         "properties": {
@@ -93,29 +392,97 @@
             "description": "Same session ID as in the request.",
             "properties": {
               "status":{
-                "type": "integer",
+                "type": "integer"
               }
               ,"message": {
-                "type": "string",
+                "type": "string"
               }
               ,"data": {
                 "type": "string"
               }
             }
+          }
+        }
+      },
+      "CreateSession": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "boolean",
+            "description": "Chat has been delivered successfully"
           },
           "message": {
             "type": "string",
             "description": "Response timestamp in ISO 8601 format."
+          },
+          "data": {
+            "type": "object",
+            "description": "Same session ID as in the request.",
+            "properties": {
+              "session_id":{
+                "type": "string"
+              }
+            }
           }
         }
       },
-      "Error": {
+      "SendMessageResponseListSession": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "boolean",
+            "description": "Data loaded successfully"
+          },
+          "data": {
+            "type": "object",
+            "description": "List session name with uuid and created date",
+            "properties": {
+              "uuid":{
+                "type": "string"
+              }
+              ,"session_name": {
+                "type": "string"
+              }
+              ,"created_at": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "SendMessageResponseDeleteSession": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "boolean",
+            "description": "Session was successfully deleted"
+          },
+          "message": {
+            "type": "string",
+            "description": "Session Deleted Successfully"
+          }
+        }
+      },
+      "Error400": {
         "type": "object",
         "required": ["error", "message"],
         "properties": {
-          "error": {
-            "type": "integer",
-            "format": "int32",
+          "status": {
+            "type": "boolean",
+            "description": "Error code."
+          },
+          "message": {
+            "type": "string",
+            "description": "Error message description."
+          }
+        }
+      },
+      "Error401": {
+        "type": "object",
+        "required": ["error", "message"],
+        "properties": {
+          "status": {
+            "type": "boolean",
             "description": "Error code."
           },
           "message": {
