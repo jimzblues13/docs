@@ -120,11 +120,11 @@
         {
           "group": "Whatsapp",
           "pages": [
-            "channel/try_sandbox",
-            "channel/setup_account",
-            "channel/inbox",
-            "channel/dashboard",
-            "channel/broadcast"
+            "channel/whatsapp/try_sandbox",
+            "channel/whatsapp/setup_account",
+            "channel/whatsapp/inbox",
+            "channel/whatsapp/dashboard",
+            "channel/whatsapp/broadcast"
           ]
         }
       ]
