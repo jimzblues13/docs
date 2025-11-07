@@ -113,7 +113,22 @@
         "organization/members",
         "organization/billing"
         ]
-      }
+      },
+    {
+      "group": "Channel",
+      "pages": [
+        {
+          "group": "Whatsapp",
+          "pages": [
+            "channel/try_sandbox",
+            "channel/setup_account",
+            "channel/inbox",
+            "channel/dashboard",
+            "channel/broadcast"
+          ]
+        }
+      ]
+    }
   ],
   "footerSocials": {
     "github": "https://github.com/socaai",
