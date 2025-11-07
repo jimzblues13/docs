@@ -94,8 +94,16 @@
         "studio/conversation_node",
         "studio/global_prompt",
         "studio/knowledge",
-        "studio/actions",
-        "studio/webhook"
+        "studio/conditions"
+      ]
+    },
+    {
+      "group": "Tools",
+      "pages": [
+        "tools/shopify",
+        "tools/virtual_try_on",
+        "tools/webhook",
+        "tools/fetch_url"
       ]
     },
     {
