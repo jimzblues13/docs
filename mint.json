@@ -15,7 +15,6 @@
       "to": "#9097FF"
     }
   },
-  "customCss": ["mintlify.css"],
   "topbarLinks": [
     {
       "name":"Home",
@@ -35,17 +34,6 @@
       "name": "API Reference",
       "icon": "code",
       "url": "api-reference"
-    }
-  ],
-   "mdx": {
-    "components": {
-      "VoiceWebSocketDocs": "components/VoiceWebSocketDocs"
-    }
-  },
-  "asyncapi": [
-    {
-      "id": "voice-stream",
-      "url": "/asyncapi.yaml"
     }
   ],
   "navigation": [
