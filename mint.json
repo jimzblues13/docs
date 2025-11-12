@@ -15,6 +15,7 @@
       "to": "#9097FF"
     }
   },
+  "customCss": ["mintlify.css"],
   "topbarLinks": [
     {
       "name":"Home",
