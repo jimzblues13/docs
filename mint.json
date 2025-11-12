@@ -36,6 +36,11 @@
       "url": "api-reference"
     }
   ],
+   "mdx": {
+    "components": {
+      "VoiceWebSocketDocs": "components/VoiceWebSocketDocs"
+    }
+  },
   "navigation": [
     {
       "group": "Get Started",
@@ -65,6 +70,12 @@
         "api-reference/sessions/list_session",
         "api-reference/sessions/detail_session",
         "api-reference/sessions/delete_session"
+      ]
+    },
+    {
+      "group": "WSS Voice Stream",
+      "pages": [
+        "api-reference/voice/overview"
       ]
     },
     {

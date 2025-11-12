@@ -1,0 +1,591 @@
+---
+title: "WSS Voice Stream"
+description: "Real-time voice conversations with Speech-to-Text and Text-to-Speech streaming"
+---
+
+<Note>
+  Real-time bi-directional WebSocket for streaming microphone audio and receiving AI voice responses with barge-in support.
+</Note>
+
+## Voice WebSocket Endpoint
+
+<API method="WSS" url="wss://xxxxxxx" type="websocket" />
+
+**Input Audio:** PCM16LE, Mono, 16 kHz\
+**Output Audio:** Chunked MP3, 22.05 kHz
+
+---
+
+## Quick Start
+
+<Tabs>
+  <Tab title="1. Connect">
+    ### Open WebSocket Connection
+
+    ```javascript
+    const ws = new WebSocket("ws://your-host/chat/agent/voice-ws");
+    ws.binaryType = "arraybuffer";
+    ```
+
+    <Tip>
+      Set `binaryType` to `"arraybuffer"` for efficient binary audio streaming
+    </Tip>
+  </Tab>
+  <Tab title="2. Authenticate">
+    ### Send Start Message
+
+    ```json
+    {
+      "type": "start",
+      "token": "<YOUR_TOKEN>",
+      "session_id": "sess_1729958473000",
+      "agent_id": "4ce7d1b9-54a7-4d2b-ae92-f3c3284b3aa2",
+      "lang": "id",
+      "sr": 16000
+    }
+    ```
+
+    <ParamField path="type" type="string" required>
+      Must be exactly `"start"`
+    </ParamField>
+    <ParamField path="token" type="string" required>
+      Your API token from Soca AI dashboard
+    </ParamField>
+    <ParamField path="session_id" type="string" required>
+      Unique session ID. Format: `sess_<timestamp>`
+    </ParamField>
+    <ParamField path="agent_id" type="string">
+      Target agent UUID or `null` for default
+    </ParamField>
+    <ParamField path="lang" default="id" type="string">
+      Language: `"id"` (Indonesian) or `"en"` (English)
+    </ParamField>
+    <ParamField path="sr" default="16000" type="number">
+      Sample rate (must be 16000)
+    </ParamField>
+  </Tab>
+  <Tab title="3. Ready Signal">
+    ### Server Responses
+
+    <CodeGroup>
+
+    ```json Session Ready
+    {
+      "type": "ready",
+      "session_id": "sess_1729958473000"
+    }
+    ```
+
+    
+    ```json STT Ready
+    {
+      "type": "stt.ready"
+    }
+    ```
+
+    </CodeGroup>
+
+    <Check>
+      When you receive `stt.ready`, you can start streaming audio!
+    </Check>
+  </Tab>
+  <Tab title="4. Stream Audio">
+    ### Send PCM16 Frames
+
+    ```javascript
+    // Continuously send binary audio frames
+    ws.send(int16Array.buffer);
+    ```
+
+    <Warning>
+      Send **binary frames only** (not base64). Must be Int16Array buffer.
+    </Warning>
+  </Tab>
+</Tabs>
+
+---
+
+## Audio Format Specifications
+
+<Tabs>
+  <Tab title="Input">
+    ### Required Format
+
+    | Property        | Value     | Description                          |
+    | --------------- | --------- | ------------------------------------ |
+    | **Format**      | PCM16LE   | 16-bit signed integer, little-endian |
+    | **Channels**    | Mono (1)  | Single channel only                  |
+    | **Sample Rate** | 16,000 Hz | Required sampling rate               |
+    | **Bit Depth**   | 16-bit    | 2 bytes per sample                   |
+
+    ### Frame Sizes
+
+    | Duration  | Bytes       | Recommendation                           |
+    | --------- | ----------- | ---------------------------------------- |
+    | **20 ms** | 640 bytes   | ⭐ **Recommended** - Best for low latency |
+    | **40 ms** | 1,280 bytes | ✅ Good - Balanced performance            |
+    | **50 ms** | 1,600 bytes | ⚠️ Max - Higher latency                  |
+
+    <Tip>
+      **Formula:** `bytes = sampleRate × duration × 2`
+
+      Example: 16,000 × 0.020 × 2 = 640 bytes
+    </Tip>
+  </Tab>
+  <Tab title="Output">
+    ### Response Format
+
+    | Property        | Value                 |
+    | --------------- | --------------------- |
+    | **Format**      | MP3                   |
+    | **Sample Rate** | 22,050 Hz             |
+    | **Bitrate**     | ~32 kbps              |
+    | **Channels**    | Mono (1)              |
+    | **Delivery**    | Base64-encoded chunks |
+
+    <Info>
+      Agent speech is delivered as **multiple chunks per sentence**. Collect all chunks and play when complete.
+    </Info>
+  </Tab>
+</Tabs>
+
+---
+
+## Message Types
+
+<Tabs>
+  <Tab title="Transcripts">
+    ### Speech Recognition Events
+
+    <AccordionGroup>
+      <Accordion title="Partial Transcript" defaultOpen icon="message">
+        Sent continuously while user is speaking:
+
+        ```json
+        {
+          "type": "stt.partial",
+          "text": "Halo apa kabar"
+        }
+        ```
+
+        <Note>
+          Display with visual indication (italic, gray) to show it's not final
+        </Note>
+      </Accordion>
+      <Accordion title="Final Transcript" icon="message-check">
+        Sent when user stops speaking:
+
+        ```json
+        {
+          "type": "stt.final",
+          "text": "Halo apa kabar hari ini?"
+        }
+        ```
+
+        <Check>
+          After non-empty final transcript, agent starts processing response
+        </Check>
+      </Accordion>
+    </AccordionGroup>
+  </Tab>
+  <Tab title="Agent Response">
+    ### Audio Response - Chunked MP3
+
+    <Steps>
+      <Step title="Sentence Chunk">
+        Each sentence arrives as multiple chunks:
+
+        ```json
+        {
+          "stepType": "sentence",
+          "chatId": "9e4d8f7a-1234-5678",
+          "sentenceId": 123456,
+          "contentStep": "Halo! Senang bertemu dengan Anda.",
+          "audioBase64": "<base64 MP3 chunk>",
+          "audioMime": "audio/mp3",
+          "chunkIndex": 0,
+          "isLastChunk": false,
+          "seq": 12
+        }
+        ```
+      </Step>
+      <Step title="Collect Chunks">
+        Keep collecting chunks where `isLastChunk: false`
+      </Step>
+      <Step title="Last Chunk">
+        Final chunk may have `audioBase64: null`:
+
+        ```json
+        {
+          "stepType": "sentence",
+          "sentenceId": 123456,
+          "audioBase64": null,
+          "chunkIndex": 7,
+          "isLastChunk": true,
+          "seq": 12
+        }
+        ```
+      </Step>
+      <Step title="Play Audio">
+        Combine all chunks and play complete sentence
+      </Step>
+    </Steps>
+    <Warning>
+      Maintain separate player per `sentenceId` AND per `seq` for proper synchronization
+    </Warning>
+  </Tab>
+  <Tab title="Control Messages">
+    ### Optional Control Commands
+
+    <CodeGroup>
+
+    ```json Stop Utterance
+    {
+      "type": "stop"
+    }
+    ```
+
+    
+    ```json Manual Barge-in
+    {
+      "type": "barge"
+    }
+    ```
+
+    </CodeGroup>
+
+    <Tip>
+      Send these commands as JSON text frames (not binary)
+    </Tip>
+  </Tab>
+  <Tab title="Final Answer">
+    ### Complete Response Summary
+
+    ```json
+    {
+      "stepType": "final_answer",
+      "stepTitle": "Final Answer",
+      "fullResponse": {
+        "answers": [{
+          "output": "Complete response text"
+        }]
+      },
+      "audioBase64": null,
+      "audioMime": "audio/mp3",
+      "isFinal": true,
+      "seq": 12,
+      "stepDuration": 1543.2
+    }
+    ```
+
+    <ResponseField name="stepDuration" type="number">
+      Processing duration in milliseconds
+    </ResponseField>
+  </Tab>
+</Tabs>
+
+---
+
+## Barge-in Control
+
+<Note>
+  **Barge-in** allows users to interrupt the AI agent mid-speech, creating natural conversation flow.
+</Note>
+
+<AccordionGroup>
+  <Accordion title="How It Works" defaultOpen icon="circle-play">
+    <Steps>
+      <Step title="User Starts Speaking">
+        While agent is talking, user begins new input
+      </Step>
+      <Step title="Server Detects Speech">
+        Server analyzes if speech is meaningful (not filler words)
+      </Step>
+      <Step title="Server Sends Barge Signal">
+        ```json
+        {
+          "type": "barge",
+          "seq": 12,
+          "reason": "content_partial"
+        }
+        ```
+      </Step>
+      <Step title="Client Stops Old Audio">
+        Stop all audio players with `seq < 12`
+      </Step>
+      <Step title="Play New Response">
+        Only play audio matching new `seq: 12`
+      </Step>
+    </Steps>
+  </Accordion>
+  <Accordion title="Gate Conditions" icon="sliders">
+    Server triggers barge-in when ALL conditions are met:
+
+    | Setting               | Default | Description                           |
+    | --------------------- | ------- | ------------------------------------- |
+    | `MIN_PARTIAL_CHARS`   | 10      | Minimum characters in speech          |
+    | `MIN_PARTIAL_WORDS`   | 2       | Minimum number of words               |
+    | `MIN_CONFIDENCE`      | 0.30    | STT confidence threshold (0.0 to 1.0) |
+    | `SPEECH_START_WINDOW` | 1.5s    | Time window after VAD detection       |
+    | `BARGE_COOLDOWN`      | 0.8s    | Minimum time between barges           |
+
+    <Warning>
+      **Filler words do NOT trigger barge-in:** `uh`, `um`, `hmm`, `eh`, `ah`, `ya`, `yah`
+    </Warning>
+  </Accordion>
+  <Accordion title="Sequence Number Logic" icon="list-ol">
+    **Check Sequence on Every Message:**
+
+    ```javascript
+    // When receiving any message
+    if (msg.seq && msg.seq > currentSeq) {
+      // Stop all old audio
+      stopAllAudio(currentSeq);
+      currentSeq = msg.seq;
+    }
+    ```
+
+    **Stop Old Audio Function:**
+
+    ```javascript
+    function stopAllAudio(beforeSeq) {
+      audioPlayers.forEach((player, key) => {
+        const [seq] = key.split('_');
+        if (parseInt(seq) < beforeSeq) {
+          player.audio.pause();
+          player.audio.currentTime = 0;
+          audioPlayers.delete(key);
+        }
+      });
+    }
+    ```
+
+    <Tip>
+      Always maintain `currentSeq` as a global variable to track the latest sequence number.
+    </Tip>
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Complete Example
+
+<CodeGroup>
+
+```javascript Basic Setup
+const ws = new WebSocket("ws://localhost:8100/chat/agent/voice-ws");
+ws.binaryType = "arraybuffer";
+
+ws.onopen = () => {
+  // Send start message
+  ws.send(JSON.stringify({
+    type: "start",
+    token: "<YOUR_TOKEN>",
+    session_id: `sess_${Date.now()}`,
+    agent_id: null,
+    lang: "id",
+    sr: 16000
+  }));
+};
+
+ws.onmessage = (e) => {
+  const msg = JSON.parse(e.data);
+  
+  // Handle different message types
+  switch(msg.type) {
+    case "stt.partial":
+      console.log("Partial:", msg.text);
+      break;
+      
+    case "stt.final":
+      console.log("Final:", msg.text);
+      break;
+      
+    case "barge":
+      handleBarge(msg.seq);
+      break;
+  }
+  
+  // Handle audio chunks
+  if (msg.stepType === "sentence") {
+    handleAudioChunk(msg);
+  }
+};
+```
+
+
+```javascript Send Audio
+// Capture microphone
+const stream = await navigator.mediaDevices.getUserMedia({
+  audio: {
+    sampleRate: 16000,
+    channelCount: 1,
+    echoCancellation: true,
+    noiseSuppression: true
+  }
+});
+
+const audioContext = new AudioContext({ sampleRate: 16000 });
+const source = audioContext.createMediaStreamSource(stream);
+const processor = audioContext.createScriptProcessor(4096, 1, 1);
+
+processor.onaudioprocess = (e) => {
+  const float32 = e.inputBuffer.getChannelData(0);
+  const int16 = convertFloat32ToInt16(float32);
+  
+  if (ws.readyState === WebSocket.OPEN) {
+    ws.send(int16.buffer);
+  }
+};
+
+source.connect(processor);
+processor.connect(audioContext.destination);
+```
+
+
+```javascript Float32 to Int16
+function convertFloat32ToInt16(float32Array) {
+  const int16Array = new Int16Array(float32Array.length);
+  
+  for (let i = 0; i < float32Array.length; i++) {
+    const s = Math.max(-1, Math.min(1, float32Array[i]));
+    int16Array[i] = s < 0 ? s * 0x8000 : s * 0x7FFF;
+  }
+  
+  return int16Array;
+}
+```
+
+
+```javascript Play Audio
+function handleAudioChunk(msg) {
+  const key = `${msg.seq}_${msg.sentenceId}`;
+  
+  // Collect chunks
+  if (!pendingChunks.has(key)) {
+    pendingChunks.set(key, []);
+  }
+  
+  if (msg.audioBase64) {
+    pendingChunks.get(key).push(msg.audioBase64);
+  }
+  
+  // Play when complete
+  if (msg.isLastChunk) {
+    const chunks = pendingChunks.get(key);
+    const fullBase64 = chunks.join('');
+    
+    // Decode and play
+    const audioData = atob(fullBase64);
+    const buffer = new ArrayBuffer(audioData.length);
+    const view = new Uint8Array(buffer);
+    
+    for (let i = 0; i < audioData.length; i++) {
+      view[i] = audioData.charCodeAt(i);
+    }
+    
+    const blob = new Blob([buffer], { type: 'audio/mp3' });
+    const url = URL.createObjectURL(blob);
+    const audio = new Audio(url);
+    
+    audio.play();
+    audio.onended = () => URL.revokeObjectURL(url);
+    
+    pendingChunks.delete(key);
+  }
+}
+```
+
+</CodeGroup>
+
+---
+
+## Error Handling
+
+<AccordionGroup>
+  <Accordion title="Protocol Errors" icon="triangle-exclamation">
+    ```json
+    {
+      "type": "error",
+      "message": "must start with type=start"
+    }
+    ```
+
+    **Solution:** Ensure `start` message is sent immediately after connection
+  </Accordion>
+  <Accordion title="Authentication Errors" icon="lock">
+    ```json
+    {
+      "type": "error",
+      "message": "Invalid or expired token"
+    }
+    ```
+
+    **Solution:** Get fresh token from Soca AI dashboard
+  </Accordion>
+  <Accordion title="Network Errors" icon="wifi-slash">
+    Server attempts transparent reconnect for audio sends. Client should implement reconnection logic with exponential backoff.
+
+    ```javascript
+    ws.onclose = (event) => {
+      if (event.code !== 1000) {
+        setTimeout(() => reconnect(), getBackoffDelay());
+      }
+    };
+    ```
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="No audio playback" icon="volume-xmark">
+    **Possible causes:**
+
+    - Not using MSE for MP3 streaming
+    - Missing user-gesture for autoplay
+    - Chunks not combined correctly
+
+    **Solutions:**
+
+    - Use `<audio>` element or Web Audio API
+    - Require user click before playing
+    - Verify all chunks collected before playing
+  </Accordion>
+  <Accordion title="Overlapping audio" icon="layer-group">
+    **Cause:** Not respecting sequence numbers
+
+    **Solution:**
+
+    ```javascript
+    if (msg.seq > currentSeq) {
+      stopAllAudio(currentSeq);
+      currentSeq = msg.seq;
+    }
+    ```
+  </Accordion>
+  <Accordion title="High latency" icon="clock">
+    **Solutions:**
+
+    - Reduce frame size to 20-40 ms
+    - Use smaller `ELEVEN_CHUNK_SIZE` (4096)
+    - Disable heavy DSP in `getUserMedia`
+    - Check network latency
+  </Accordion>
+  <Accordion title="Microphone not working" icon="microphone-slash">
+    **Checklist:**
+
+    - ✅ Grant microphone permission
+    - ✅ Use HTTPS (required for getUserMedia)
+    - ✅ Check browser compatibility
+    - ✅ Verify audio constraints (16kHz, mono)
+  </Accordion>
+</AccordionGroup>
+
+---
+
+<Card title="Try It Out" icon="github" href="https://github.com/socaai/voice-websocket-example">
+  See complete working implementation with source code on GitHub
+</Card>
