@@ -1,0 +1,118 @@
+/* === Global Transition === */
+html, body, .mintlify-sidebar, .mintlify-content {
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* === Light Mode (default) === */
+:root {
+  --sidebar-bg: #F4F5FF;
+  --sidebar-text: #1F1F39;
+  --sidebar-active-bg: #6D75F6;
+  --sidebar-active-text: #FFFFFF;
+  --content-bg: #FFFFFF;
+  --content-text: #1F1F39;
+  --link-hover: #9097FF;
+}
+
+/* === Dark Mode === */
+[data-theme="dark"] {
+  --sidebar-bg: #000000;
+  --sidebar-text: #FFFFFF;
+  --sidebar-active-bg: #FFFFFF;
+  --sidebar-active-text: #000000;
+  --content-bg: #1F1F1F;
+  --content-text: #FFFFFF;
+  --link-hover: #9097FF;
+}
+
+/* === Sidebar === */
+.mintlify-sidebar {
+  background-color: var(--sidebar-bg) !important;
+  color: var(--sidebar-text) !important;
+  border-right: 1px solid rgba(255,255,255,0.1);
+}
+
+.mintlify-sidebar a,
+.mintlify-sidebar span {
+  color: var(--sidebar-text) !important;
+  transition: all 0.2s ease;
+}
+
+.mintlify-sidebar a:hover {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  color: var(--sidebar-text) !important;
+}
+
+/* Active or clicked link */
+.mintlify-sidebar a.active,
+.mintlify-sidebar a[aria-current="page"] {
+  background-color: var(--sidebar-active-bg) !important;
+  color: var(--sidebar-active-text) !important;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+/* === Content Area === */
+.mintlify-content {
+  background-color: var(--content-bg) !important;
+  color: var(--content-text) !important;
+}
+
+/* Texts & Headings */
+.mintlify-content h1,
+.mintlify-content h2,
+.mintlify-content h3,
+.mintlify-content h4,
+.mintlify-content h5,
+.mintlify-content h6,
+.mintlify-content p,
+.mintlify-content li,
+.mintlify-content span,
+.mintlify-content a {
+  color: var(--content-text) !important;
+}
+
+.mintlify-content a:hover {
+  color: var(--link-hover) !important;
+}
+
+/* Code blocks & inline code */
+.mintlify-content code {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  color: #FFFFFF !important;
+  border-radius: 4px;
+  padding: 2px 6px;
+}
+
+/* === Preserve API method colors === */
+.method-get {
+  background-color: #00BFA6 !important;
+  color: #FFFFFF !important;
+}
+.method-post {
+  background-color: #6D75F6 !important;
+  color: #FFFFFF !important;
+}
+.method-put {
+  background-color: #F6A86D !important;
+  color: #FFFFFF !important;
+}
+.method-delete {
+  background-color: #F66D6D !important;
+  color: #FFFFFF !important;
+}
+
+/* === Scrollbar Style === */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+[data-theme="light"] ::-webkit-scrollbar-thumb {
+  background: #E0E2FF;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
