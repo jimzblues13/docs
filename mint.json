@@ -6,14 +6,14 @@
     "light": "/logo/soca_dark.PNG"
   },
   "favicon": "/favicon.svg",
-  "colors": {
-    "primary": "#8C8C8C",
-    "light": "#2D2D2D",
-    "dark": "#8C8C8C",
-    "anchors": {
-      "from": "#8C8C8C",
-      "to": "#2D2D2D"
-    }
+"colors": {
+  "primary": "#FFFFFF",
+  "light": "#F5F5F5",
+  "dark": "#1A1A1A",
+  "anchors": {
+    "from": "#2D2D2D",
+    "to": "#000000"
+  }
   },
   "topbarLinks": [
     {
