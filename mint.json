@@ -81,7 +81,7 @@
     {
       "group": "WSS Voice Stream",
       "pages": [
-        "api-reference/voice/overview"
+        "api-reference/voice/voice-stream"
       ]
     },
     {
