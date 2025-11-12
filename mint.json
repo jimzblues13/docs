@@ -41,6 +41,12 @@
       "VoiceWebSocketDocs": "components/VoiceWebSocketDocs"
     }
   },
+  "asyncapi": [
+    {
+      "id": "voice-stream",
+      "url": "/asyncapi.yaml"
+    }
+  ],
   "navigation": [
     {
       "group": "Get Started",

@@ -1,0 +1,58 @@
+asyncapi: '3.0.0'
+info:
+  title: Soca Voice Stream API
+  version: '1.0.0'
+  description: |
+    Real-time WebSocket API for voice streaming and AI-generated responses.
+
+defaultContentType: application/json
+
+servers:
+  production:
+    url: wss://api.soca.ai/v1/voice-ws
+    protocol: wss
+    description: Production WebSocket endpoint.
+
+channels:
+  /voice-stream:
+    description: |
+      WebSocket channel for streaming audio to the AI engine and receiving transcribed or generated text.
+    publish:
+      summary: Send audio input to the AI.
+      operationId: sendAudio
+      message:
+        name: AudioChunk
+        payload:
+          type: object
+          properties:
+            event:
+              type: string
+              enum: [start, audio_chunk, stop]
+              description: Event type for the voice session.
+            data:
+              type: string
+              description: Base64 encoded PCM16 audio data (for `audio_chunk`).
+            session_id:
+              type: string
+              description: Unique session identifier.
+          required:
+            - event
+    subscribe:
+      summary: Receive AI responses.
+      operationId: receiveTranscription
+      message:
+        name: AIResponse
+        payload:
+          type: object
+          properties:
+            type:
+              type: string
+              enum: [partial_text, final_text, error]
+              description: Type of message returned by the AI.
+            text:
+              type: string
+              description: The AI-generated text or transcription result.
+            timestamp:
+              type: string
+              format: date-time
+              description: Time when the response was generated.
