@@ -39,7 +39,7 @@ wss://api.soca.ai/v1/voice-ws
     ```json
     {
       "type": "start",
-      "token": "<private_key>",
+      "private_key": "<private_key>",
       "session_id": "<session_id>",
       "agent_id": "<agent_id>",
       "lang": "id",
@@ -382,7 +382,7 @@ ws.onopen = () => {
   // Send start message
   ws.send(JSON.stringify({
     type: "start",
-    token: "<private_key>",
+    private_key: "<private_key>",
     session_id: "<session_id>",
     agent_id: "<agent_id>",
     lang: "id",
