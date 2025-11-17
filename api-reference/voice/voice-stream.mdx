@@ -25,7 +25,7 @@ wss://api.soca.ai/v1/voice-ws
     ### Open WebSocket Connection
 
     ```javascript
-    const ws = new WebSocket("ws://your-host/chat/agent/voice-ws");
+    const ws = new WebSocket("wss://api.soca.ai/v1/voice-ws");
     ws.binaryType = "arraybuffer";
     ```
 
@@ -39,9 +39,9 @@ wss://api.soca.ai/v1/voice-ws
     ```json
     {
       "type": "start",
-      "token": "<YOUR_TOKEN>",
-      "session_id": "sess_1729958473000",
-      "agent_id": "4ce7d1b9-54a7-4d2b-ae92-f3c3284b3aa2",
+      "token": "<private_key>",
+      "session_id": "<session_id>",
+      "agent_id": "<agent_id>",
       "lang": "id",
       "sr": 16000
     }
@@ -51,13 +51,13 @@ wss://api.soca.ai/v1/voice-ws
       Must be exactly `"start"`
     </ParamField>
     <ParamField path="token" type="string" required>
-      Your API token from Soca AI dashboard
+      Your API key from Soca AI platform
     </ParamField>
     <ParamField path="session_id" type="string" required>
-      Unique session ID. Format: `sess_<timestamp>`
+      Session ID for this message.
     </ParamField>
-    <ParamField path="agent_id" type="string">
-      Target agent UUID or `null` for default
+    <ParamField path="agent_id" type="string" required>
+      The unique identifier of a Soca AI agent created in the Studio.
     </ParamField>
     <ParamField path="lang" default="id" type="string">
       Language: `"id"` (Indonesian) or `"en"` (English)
@@ -74,7 +74,7 @@ wss://api.soca.ai/v1/voice-ws
     ```json Session Ready
     {
       "type": "ready",
-      "session_id": "sess_1729958473000"
+      "session_id": "<session_id>"
     }
     ```
 
@@ -375,16 +375,16 @@ wss://api.soca.ai/v1/voice-ws
 <CodeGroup>
 
 ```javascript Basic Setup
-const ws = new WebSocket("ws://localhost:8100/chat/agent/voice-ws");
+const ws = new WebSocket("wss://api.soca.ai/v1/voice-ws");
 ws.binaryType = "arraybuffer";
 
 ws.onopen = () => {
   // Send start message
   ws.send(JSON.stringify({
     type: "start",
-    token: "<YOUR_TOKEN>",
-    session_id: `sess_${Date.now()}`,
-    agent_id: null,
+    token: "<private_key>",
+    session_id: "<session_id>",
+    agent_id: "<agent_id>",
     lang: "id",
     sr: 16000
   }));
