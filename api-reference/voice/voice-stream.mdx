@@ -10,7 +10,7 @@ description: "Real-time voice conversations with Speech-to-Text and Text-to-Spee
 ## Voice WebSocket Endpoint
 
 ```bash
-wss://api.soca.ai/v1/voice-ws
+wss://api.soca.ai/voice-ws
 ```
 
 **Input Audio:** PCM16LE, Mono, 16 kHz\
@@ -25,7 +25,7 @@ wss://api.soca.ai/v1/voice-ws
     ### Open WebSocket Connection
 
     ```javascript
-    const ws = new WebSocket("wss://api.soca.ai/v1/voice-ws");
+    const ws = new WebSocket("wss://api.soca.ai/voice-ws");
     ws.binaryType = "arraybuffer";
     ```
 
@@ -375,7 +375,7 @@ wss://api.soca.ai/v1/voice-ws
 <CodeGroup>
 
 ```javascript Basic Setup
-const ws = new WebSocket("wss://api.soca.ai/v1/voice-ws");
+const ws = new WebSocket("wss://api.soca.ai/voice-ws");
 ws.binaryType = "arraybuffer";
 
 ws.onopen = () => {
