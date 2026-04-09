@@ -8,13 +8,13 @@
   },
   "favicon": "/favicon.svg",
   "colors": {
-  "primary": "#000000",
-  "light": "#F5F5F5",
-  "dark": "#1A1A1A"
+    "primary": "#000000",
+    "light": "#F5F5F5",
+    "dark": "#1A1A1A"
   },
   "topbarLinks": [
     {
-      "name":"Home",
+      "name": "Home",
       "url": "https://soca.ai"
     },
     {
@@ -71,22 +71,17 @@
       ]
     },
     {
-      "group": "General",
+      "group": "How it Works",
       "pages": [
-        {
-          "group": "How it Works",
-          "pages": [
-            "general/our_platform",
-            "general/multimodal"
-          ]
-        },
-        {
-          "group": "Enterprise",
-          "pages": [
-            "general/enterprise",
-            "general/onprem_deployment"
-          ]
-        },
+        "general/our_platform",
+        "general/multimodal"
+      ]
+    },
+    {
+      "group": "Enterprise",
+      "pages": [
+        "general/enterprise",
+        "general/onprem_deployment",
         "general/support"
       ]
     },
@@ -109,20 +104,15 @@
       ]
     },
     {
-      "group": "Channels",
+      "group": "Whatsapp Channel",
       "pages": [
-        {
-          "group": "Whatsapp",
-          "pages": [
-            "channel/whatsapp/try_sandbox",
-            "channel/whatsapp/setup_account",
-            "channel/whatsapp/inbox",
-            "channel/whatsapp/dashboard",
-            "channel/whatsapp/broadcast",
-            "channel/whatsapp/follow_up",
-            "channel/whatsapp/contact"
-          ]
-        }
+        "channel/whatsapp/try_sandbox",
+        "channel/whatsapp/setup_account",
+        "channel/whatsapp/inbox",
+        "channel/whatsapp/dashboard",
+        "channel/whatsapp/broadcast",
+        "channel/whatsapp/follow_up",
+        "channel/whatsapp/contact"
       ]
     },
     {
@@ -131,8 +121,8 @@
         "organization/general",
         "organization/members",
         "organization/billing"
-        ]
-      }
+      ]
+    }
   ],
   "footerSocials": {
     "github": "https://github.com/socaai",
