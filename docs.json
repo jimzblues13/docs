@@ -119,8 +119,7 @@
      "pages": [
            "channel/whatsapp/inbox",
            "channel/whatsapp/broadcast",
-           "channel/whatsapp/follow_up",
-           "channel/whatsapp/contact"
+           "channel/whatsapp/follow_up"
      ]
    },
    {
