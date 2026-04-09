@@ -67,9 +67,29 @@
      ]
    },
    {
-     "group": "Voice Stream",
+     "group": "WSS Voice Stream",
      "pages": [
        "api-reference/voice/voice-stream"
+     ]
+   },
+      {
+        "group": "General",
+     "pages": [
+       {
+         "group": "How it Works",
+         "pages": [
+           "general/our_platform",
+           "general/multimodal"
+         ]
+       },
+       {
+         "group": "Enterprise",
+         "pages": [
+           "general/enterprise",
+           "general/onprem_deployment"
+         ]
+       },
+       "general/support"
      ]
    },
       {
@@ -91,27 +111,22 @@
         ]
       },
       {
-        "group": "General",
-        "pages": [
-          "general/our_platform",
-          "general/multimodal",
-          "general/enterprise",
-          "general/onprem_deployment",
-          "general/support"
-        ]
-      },
-      {
-        "group": "Whatsapp Channel",
-        "pages": [
-          "channel/whatsapp/try_sandbox",
-          "channel/whatsapp/setup_account",
-          "channel/whatsapp/inbox",
-          "channel/whatsapp/dashboard",
-          "channel/whatsapp/broadcast",
-          "channel/whatsapp/follow_up",
-          "channel/whatsapp/contact"
-        ]
-      },
+     "group": "Channels",
+     "pages": [
+       {
+         "group": "Whatsapp",
+         "pages": [
+           "channel/whatsapp/try_sandbox",
+           "channel/whatsapp/setup_account",
+           "channel/whatsapp/inbox",
+           "channel/whatsapp/dashboard",
+           "channel/whatsapp/broadcast",
+           "channel/whatsapp/follow_up",
+           "channel/whatsapp/contact"
+         ]
+       }
+     ]
+   },
       {
         "group": "Organization",
         "pages": [
@@ -120,6 +135,11 @@
           "organization/billing"
         ]
       }
-    ]
+    ],
+    "footerSocials": {
+   "github": "https://github.com/socaai",
+   "linkedin": "https://www.linkedin.com/company/soca-ai/",
+   "youtube": "https://www.youtube.com/@SocaAI"
+    }
   }
 }
