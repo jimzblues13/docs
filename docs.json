@@ -44,6 +44,35 @@
         ]
       },
       {
+     "group": "API Documentation",
+     "pages": [
+       "api-reference/introduction",
+       "api-reference/credentials"
+     ]
+   },
+   {
+     "group": "Chats",
+     "pages": [
+       "api-reference/chats/post"
+     ]
+   },
+
+   {
+     "group": "Sessions",
+     "pages": [
+       "api-reference/sessions/create_session",
+       "api-reference/sessions/list_session",
+       "api-reference/sessions/detail_session",
+       "api-reference/sessions/delete_session"
+     ]
+   },
+   {
+     "group": "Voice Stream",
+     "pages": [
+       "api-reference/voice/voice-stream"
+     ]
+   },
+      {
         "group": "Studio",
         "pages": [
           "studio/conversation_node",
