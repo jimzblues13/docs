@@ -111,20 +111,23 @@
         ]
       },
       {
-     "group": "Channels",
-     "pages": [
-       {
-         "group": "Whatsapp",
+         "group": "Contact",
          "pages": [
-           "channel/whatsapp/try_sandbox",
-           "channel/whatsapp/setup_account",
-           "channel/whatsapp/inbox",
-           "channel/whatsapp/dashboard",
-           "channel/whatsapp/broadcast",
-           "channel/whatsapp/follow_up",
            "channel/whatsapp/contact"
          ]
-       }
+   },
+   {
+     "group": "Whatsapp",
+     "pages": [
+           "channel/whatsapp/try_sandbox",
+           "channel/whatsapp/setup_account"
+     ]
+   },{
+     "group": "Monitor",
+     "pages": [
+           "channel/whatsapp/inbox",
+           "channel/whatsapp/broadcast",
+           "channel/whatsapp/follow_up"
      ]
    },
       {
