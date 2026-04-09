@@ -1,12 +1,39 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Documentation",
-  "colors": {
-    "primary": "#0D9373"
+  "name": "Soca AI Docs",
+  "logo": {
+    "dark": "/logo/soca_light3.svg",
+    "light": "/logo/soca_dark.PNG"
   },
-  "navigation": {
-    "groups": [
+  "favicon": "/favicon.svg",
+  "colors": {
+  "primary": "#000000",
+  "light": "#F5F5F5",
+  "dark": "#1A1A1A"
+  },
+  "topbarLinks": [
+    {
+      "name":"Home",
+      "url": "https://soca.ai"
+    },
+    {
+      "name": "Support",
+      "url": "mailto:support@soca.ai"
+    }
+  ],
+  "topbarCtaButton": {
+    "name": "Platform",
+    "url": "https://platform.soca.ai/signin"
+  },
+  "anchors": [
+    {
+      "name": "API Reference",
+      "icon": "code",
+      "url": "api-reference"
+    }
+  ],
+  "navigation": [
     {
       "group": "Get Started",
       "pages": [
@@ -106,6 +133,10 @@
         "organization/billing"
         ]
       }
-  ]
+  ],
+  "footerSocials": {
+    "github": "https://github.com/socaai",
+    "linkedin": "https://www.linkedin.com/company/soca-ai/",
+    "youtube": "https://www.youtube.com/@SocaAI"
   }
 }
