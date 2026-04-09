@@ -34,6 +34,16 @@
    }
  ],
   "navigation": {
+    "anchors": [
+      {
+        "anchor": "API Documentation",
+        "icon": "book-open",
+        "pages": [
+          "api-reference/introduction",
+          "api-reference/credentials"
+        ]
+      }
+    ],
     "groups": [
       {
         "group": "Getting Started",
@@ -44,17 +54,7 @@
         ]
       },
       {
-        "group": "API Documentation",
-        "icon": "key",
-        "expanded": true,
-        "openapi": "api-reference/openapi.json",
-        "pages": [
-          "api-reference/introduction",
-          "api-reference/credentials"
-        ]
-      },
-      {
-        "group": "Interaction",
+        "group": "API Reference",
         "pages": [
           "api-reference/chats/post",
           "api-reference/sessions/create_session",
