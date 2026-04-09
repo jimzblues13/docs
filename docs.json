@@ -110,24 +110,20 @@
           "tools/fetch_url"
         ]
       },
-      {
-         "group": "Contact",
-         "pages": [
-           "channel/whatsapp/contact"
-         ]
-   },
    {
      "group": "Whatsapp",
      "pages": [
            "channel/whatsapp/try_sandbox",
            "channel/whatsapp/setup_account"
      ]
-   },{
+   },
+   {
      "group": "Monitor",
      "pages": [
            "channel/whatsapp/inbox",
            "channel/whatsapp/broadcast",
-           "channel/whatsapp/follow_up"
+           "channel/whatsapp/follow_up",
+           "channel/whatsapp/contact"
      ]
    },
       {
