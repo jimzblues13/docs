@@ -110,6 +110,11 @@
           "organization/billing"
         ]
       }
-    ]
+    ],
+    "footerSocials": {
+    "github": "https://github.com/socaai",
+    "linkedin": "https://www.linkedin.com/company/soca-ai/",
+    "youtube": "https://www.youtube.com/@SocaAI"
+    }
   }
 }
