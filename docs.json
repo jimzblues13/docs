@@ -92,7 +92,9 @@
        "general/support"
      ]
    },
-      {
+   {
+     "group": "Build",
+     "pages": [{
         "group": "Studio",
         "pages": [
           "studio/conversation_node",
@@ -100,8 +102,7 @@
           "studio/knowledge",
           "studio/conditions"
         ]
-      },
-      {
+      },{
         "group": "Tools",
         "pages": [
           "tools/shopify",
@@ -110,9 +111,6 @@
           "tools/fetch_url"
         ]
       },
-   {
-     "group": "Build",
-     "pages": [
            "channel/whatsapp/contact"
      ]
    },
