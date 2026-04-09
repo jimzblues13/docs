@@ -122,7 +122,8 @@
             "channel/whatsapp/inbox",
             "channel/whatsapp/dashboard",
             "channel/whatsapp/broadcast",
-            "channel/whatsapp/follow_up"
+            "channel/whatsapp/follow_up",
+            "channel/whatsapp/contact"
           ]
         }
       ]
