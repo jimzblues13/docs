@@ -111,10 +111,9 @@
         ]
       },
    {
-     "group": "Whatsapp",
+     "group": "Build",
      "pages": [
-           "channel/whatsapp/try_sandbox",
-           "channel/whatsapp/setup_account"
+           "channel/whatsapp/contact"
      ]
    },
    {
@@ -124,6 +123,13 @@
            "channel/whatsapp/broadcast",
            "channel/whatsapp/follow_up",
            "channel/whatsapp/contact"
+     ]
+   },
+   {
+     "group": "Whatsapp",
+     "pages": [
+           "channel/whatsapp/try_sandbox",
+           "channel/whatsapp/setup_account"
      ]
    },
       {
