@@ -45,7 +45,9 @@
       },
       {
         "group": "API Documentation",
+        "icon": "key",
         "expanded": true,
+        "openapi": "api-reference/openapi.json",
         "pages": [
           "api-reference/introduction",
           "api-reference/credentials"
@@ -110,11 +112,6 @@
           "organization/billing"
         ]
       }
-    ],
-    "footerSocials": {
-    "github": "https://github.com/socaai",
-    "linkedin": "https://www.linkedin.com/company/soca-ai/",
-    "youtube": "https://www.youtube.com/@SocaAI"
-    }
+    ]
   }
 }
