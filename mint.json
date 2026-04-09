@@ -27,7 +27,7 @@
   ],
   "topbarCtaButton": {
     "name": "Platform",
-    "url": "https://genesist.soca.ai/signin"
+    "url": "https://platform.soca.ai/signin"
   },
   "anchors": [
     {
@@ -90,8 +90,7 @@
             "general/onprem_deployment"
           ]
         },
-        "general/support",
-        "general/status"
+        "general/support"
       ]
     },
     {
@@ -113,14 +112,6 @@
       ]
     },
     {
-      "group": "Organization",
-      "pages": [
-        "organization/general",
-        "organization/members",
-        "organization/billing"
-        ]
-      },
-    {
       "group": "Channels",
       "pages": [
         {
@@ -130,11 +121,20 @@
             "channel/whatsapp/setup_account",
             "channel/whatsapp/inbox",
             "channel/whatsapp/dashboard",
-            "channel/whatsapp/broadcast"
+            "channel/whatsapp/broadcast",
+            "channel/whatsapp/follow_up"
           ]
         }
       ]
-    }
+    },
+    {
+      "group": "Organization",
+      "pages": [
+        "organization/general",
+        "organization/members",
+        "organization/billing"
+        ]
+      }
   ],
   "footerSocials": {
     "github": "https://github.com/socaai",
