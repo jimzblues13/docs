@@ -1,6 +1,6 @@
 {
-  "$schema": "https://mintlify.com/docs.json",
-  "theme": "mint",
+  "$schema": "https://mintlify.com/schema.json",
+  "theme":"mint",
   "name": "Soca AI Docs",
   "logo": {
     "dark": "/logo/soca_light3.svg",
@@ -8,13 +8,13 @@
   },
   "favicon": "/favicon.svg",
   "colors": {
-    "primary": "#000000",
-    "light": "#F5F5F5",
-    "dark": "#1A1A1A"
+  "primary": "#000000",
+  "light": "#F5F5F5",
+  "dark": "#1A1A1A"
   },
   "topbarLinks": [
     {
-      "name": "Home",
+      "name":"Home",
       "url": "https://soca.ai"
     },
     {
@@ -33,60 +33,112 @@
       "url": "api-reference"
     }
   ],
-  "navigation": {
-    "tabs": [
-      {
-        "name": "Documentation",
-        "groups": [
-          {
-            "group": "Get Started",
-            "pages": [
-              "introduction",
-              "platform_overview",
-              "tutorials"
-            ]
-          },
-          {
-            "group": "API Documentation",
-            "pages": [
-              "api-reference/introduction",
-              "api-reference/credentials"
-            ]
-          },
-          {
-            "group": "Interaction",
-            "pages": [
-              "api-reference/chats/post",
-              "api-reference/sessions/create_session",
-              "api-reference/sessions/list_session",
-              "api-reference/sessions/detail_session",
-              "api-reference/sessions/delete_session"
-            ]
-          },
-          {
-            "group": "Studio & Tools",
-            "pages": [
-              "studio/conversation_node",
-              "studio/global_prompt",
-              "studio/knowledge",
-              "studio/conditions",
-              "tools/shopify",
-              "tools/virtual_try_on",
-              "tools/webhook",
-              "tools/fetch_url"
-            ]
-          },
-          {
-            "group": "Channels",
-            "pages": [
-              "channel/whatsapp/try_sandbox",
-              "channel/whatsapp/setup_account"
-            ]
-          }
+  "navigation": [
+    {
+      "group": "Get Started",
+      "pages": [
+        "introduction",
+        "platform_overview",
+        "tutorials"
+      ]
+    },
+    {
+      "group": "API Documentation",
+      "pages": [
+        "api-reference/introduction",
+        "api-reference/credentials"
+      ]
+    },
+    {
+      "group": "Chats",
+      "pages": [
+        "api-reference/chats/post"
+      ]
+    },
+    {
+      "group": "Sessions",
+      "pages": [
+        "api-reference/sessions/create_session",
+        "api-reference/sessions/list_session",
+        "api-reference/sessions/detail_session",
+        "api-reference/sessions/delete_session"
+      ]
+    },
+    {
+      "group": "WSS Voice Stream",
+      "pages": [
+        "api-reference/voice/voice-stream"
+      ]
+    },
+    {
+      "group": "General",
+      "pages": [
+        {
+          "group": "How it Works",
+          "pages": [
+            "general/our_platform",
+            "general/multimodal"
+          ]
+        },
+        {
+          "group": "Enterprise",
+          "pages": [
+            "general/enterprise",
+            "general/onprem_deployment"
+          ]
+        },
+        "general/support"
+      ]
+    },
+    {
+      "group": "Studio",
+      "pages": [
+        "studio/conversation_node",
+        "studio/global_prompt",
+        "studio/knowledge",
+        "studio/conditions"
+      ]
+    },
+    {
+      "group": "Tools",
+      "pages": [
+        "tools/shopify",
+        "tools/virtual_try_on",
+        "tools/webhook",
+        "tools/fetch_url"
+      ]
+    },
+    {
+      "group": "Monitor",
+      "pages": [
+            "channel/whatsapp/inbox",
+            "channel/whatsapp/broadcast",
+            "channel/whatsapp/follow_up",
+            "channel/whatsapp/contact"
+      ]
+    },
+    {
+      "group": "Channels",
+      "pages": [
+        {
+          "group": "Whatsapp",
+          "pages": [
+            "channel/whatsapp/try_sandbox",
+            "channel/whatsapp/setup_account",
+            "channel/whatsapp/contact"
+          ]
+        }
+      ]
+    },
+    {
+      "group": "Organization",
+      "pages": [
+        "organization/general",
+        "organization/members",
+        "organization/billing"
         ]
       }
-    ]
-  },
+  ],
   "footerSocials": {
     "github": "https://github.com/socaai",
     "linkedin": "https://www.linkedin.com/company/soca-ai/",
