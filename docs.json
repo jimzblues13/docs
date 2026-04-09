@@ -34,16 +34,6 @@
    }
  ],
   "navigation": {
-    "anchors": [
-      {
-        "anchor": "API Documentation",
-        "icon": "book-open",
-        "pages": [
-          "api-reference/introduction",
-          "api-reference/credentials"
-        ]
-      }
-    ],
     "groups": [
       {
         "group": "Getting Started",
@@ -51,17 +41,6 @@
           "introduction",
           "platform_overview",
           "tutorials"
-        ]
-      },
-      {
-        "group": "API Reference",
-        "pages": [
-          "api-reference/chats/post",
-          "api-reference/sessions/create_session",
-          "api-reference/sessions/list_session",
-          "api-reference/sessions/detail_session",
-          "api-reference/sessions/delete_session",
-          "api-reference/voice/voice-stream"
         ]
       },
       {
