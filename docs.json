@@ -100,8 +100,7 @@
           "studio/conversation_node",
           "studio/global_prompt",
           "studio/knowledge",
-          "studio/conditions",
-          "studio/widget"
+          "studio/conditions"
         ]
       },{
         "group": "Tools",
@@ -112,7 +111,8 @@
           "tools/fetch_url"
         ]
       },
-           "channel/whatsapp/contact"
+           "channel/whatsapp/contact",
+           "studio/widget"
      ]
    },
    {
