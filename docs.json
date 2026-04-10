@@ -12,20 +12,20 @@
    "light": "#F5F5F5",
    "dark": "#1A1A1A"
  },
- "topbarLinks": [
+ "navbar": {
+    "links": [
+      {
+     "label": "Support",
+     "href": "mailto:support@soca.ai"
+      }
+    ],
+    "primary": 
    {
-     "name": "Home",
-     "url": "https://soca.ai"
-   },
-   {
-     "name": "Support",
-     "url": "mailto:support@soca.ai"
+    "type": "button",
+    "label": "Platform",
+    "href": "https://platform.soca.ai/"
    }
- ],
- "topbarCtaButton": {
-   "name": "Platform",
-   "url": "https://platform.soca.ai/signin"
- },
+  },
  "anchors": [
    {
      "name": "API Reference",
