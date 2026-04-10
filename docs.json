@@ -95,30 +95,30 @@
      "pages": [{
         "group": "Studio",
         "pages": [
-          "studio/conversation_node",
-          "studio/global_prompt",
-          "studio/knowledge",
-          "studio/conditions"
+          "build/studio/conversation_node",
+          "build/studio/global_prompt",
+          "build/studio/knowledge",
+          "build/studio/conditions"
         ]
       },{
         "group": "Tools",
         "pages": [
-          "tools/shopify",
-          "tools/virtual_try_on",
-          "tools/webhook",
-          "tools/fetch_url"
+          "build/tools/shopify",
+          "build/tools/virtual_try_on",
+          "build/tools/webhook",
+          "build/tools/fetch_url"
         ]
       },
-           "channel/whatsapp/contact",
-           "studio/widget"
+           "build/contact",
+           "build/widget"
      ]
    },
    {
      "group": "Monitor",
      "pages": [
-           "channel/whatsapp/inbox",
-           "channel/whatsapp/broadcast",
-           "channel/whatsapp/follow_up"
+           "monitor/inbox",
+           "monitor/broadcast",
+           "monitor/follow_up"
      ]
    },
    {
