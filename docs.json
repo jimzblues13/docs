@@ -100,7 +100,8 @@
           "studio/conversation_node",
           "studio/global_prompt",
           "studio/knowledge",
-          "studio/conditions"
+          "studio/conditions",
+          "studio/widget"
         ]
       },{
         "group": "Tools",
