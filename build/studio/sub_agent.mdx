@@ -1,0 +1,230 @@
+---
+title: "Sub Agent"
+---
+
+## **Overview**
+
+<Frame>
+  ![Subagent1](/images/subagent1.png "Subagent1")
+</Frame>
+
+A **Sub-Agent** is a specialized AI agent designed to handle a specific type of conversation, task, or user intent within an AI workflow.
+
+Instead of placing all business logic into a single agent, you can divide responsibilities into multiple Sub-Agents. Each Sub-Agent focuses on one particular area, making conversations more accurate, easier to manage, and simpler to maintain as your AI grows.
+
+For example, you might create separate Sub-Agents for:
+
+- Needs Exploration
+- Product Information
+- Price Inquiry
+- Booking Assistant
+- Employee Support
+- Reimbursement
+- Technical Support
+- Human Handover
+
+When a user sends a message, the AI analyzes the conversation and determines which Sub-Agent best matches the user's intent based on the configuration you provide.
+
+# **Why Use Sub-Agents?**
+
+Using Sub-Agents offers several advantages:
+
+- Organize complex workflows into smaller, specialized components.
+- Improve response accuracy by assigning conversations to the most appropriate agent.
+- Reduce prompt complexity by separating responsibilities.
+- Simplify maintenance and future updates.
+- Build scalable AI workflows that are easier to extend over time.
+
+Instead of one large prompt trying to handle every scenario, each Sub-Agent is responsible for a clearly defined purpose.
+
+# **Configuring a Sub-Agent**
+
+<Frame>
+  ![Subagent2](/images/subagent2.png "Subagent2")
+</Frame>
+
+A Sub-Agent consists of two main configuration fields:
+
+1. **Agent Name**
+2. **Describe When to Use This Agent**
+
+These fields work together to help the AI identify and route conversations to the appropriate Sub-Agent.
+
+# **Agent Name**
+
+## **Purpose**
+
+The **Agent Name** is the unique name of the Sub-Agent.
+
+It helps you identify the Sub-Agent within your project and makes your workflow easier to organize and maintain.
+
+The name should clearly reflect the responsibility of the Sub-Agent.
+
+## **Requirements**
+
+- Maximum **50 characters**
+- Must be unique within the project
+- Use a concise and descriptive name
+
+## **Good Examples**
+
+- Needs Exploration
+- Booking Assistant
+- Product Information
+- Employee Support
+- Reimbursement Agent
+- Technical Support
+- Human Handover
+- FAQ
+
+## **Avoid**
+
+- Agent 1
+- Test
+- New Agent
+- My Agent
+- Untitled
+
+These names do not describe the purpose of the Sub-Agent and may cause confusion when managing multiple agents.
+
+# **Describe When to Use This Agent**
+
+## **Purpose**
+
+This field tells the AI **when this Sub-Agent should be selected** during a conversation.
+
+Rather than defining how the Sub-Agent responds, this field describes the types of conversations that belong to the Sub-Agent.
+
+Think of it as the routing guide that helps the AI decide:
+
+"Is this the right Sub-Agent for the current conversation?"
+
+A well-written description significantly improves routing accuracy.
+
+# **What Should Be Included?**
+
+Describe the characteristics of conversations that this Sub-Agent is designed to handle.
+
+You can include:
+
+- User intent
+- Conversation goals
+- Common scenarios
+- Types of requests
+- Keywords or phrases
+- User sentiment, when relevant
+
+Focus on identifying **what the user is trying to accomplish**, rather than explaining how the AI should respond.
+
+# **Example**
+
+### **Needs Exploration**
+
+**When to use this agent**
+
+Use this Sub-Agent when the user is describing their situation or explaining what they need, and additional information is required before providing recommendations or taking action.
+
+Typical situations include:
+
+- The user is explaining a problem.
+- The user is seeking recommendations.
+- The user's request is still unclear.
+- The AI needs to gather more information before continuing.
+
+Common keywords:
+
+- need
+- problem
+- issue
+- consultation
+- recommendation
+- looking for
+- help
+- not sure
+
+### **Booking Assistant**
+
+**When to use this agent**
+
+Use this Sub-Agent when the user wants to schedule, modify, or cancel an appointment.
+
+Typical situations include:
+
+- Booking a new appointment
+- Checking available schedules
+- Rescheduling an appointment
+- Canceling an appointment
+
+Common keywords:
+
+- booking
+- appointment
+- available
+- schedule
+- tomorrow
+- next week
+- reschedule
+- cancel
+
+### **Human Handover**
+
+**When to use this agent**
+
+Use this Sub-Agent when the conversation should be transferred to a human representative.
+
+Typical situations include:
+
+- The user requests a human agent.
+- The AI cannot resolve the issue.
+- The request requires manual handling.
+- The user submits a complaint.
+
+Common keywords:
+
+- human
+- customer service
+- representative
+- operator
+- admin
+- complaint
+
+# **Best Practices**
+
+- Assign each Sub-Agent a single, well-defined responsibility.
+- Choose a clear and descriptive name that reflects the Sub-Agent's purpose.
+- Describe **when** the Sub-Agent should be used, rather than **how** it should respond.
+- Include common user intents and conversation patterns.
+- Add keywords that users are likely to use naturally.
+- Keep descriptions focused and easy to understand.
+
+# **Common Mistakes**
+
+The **Describe When to Use This Agent** field should **not** contain operational instructions or response prompts.
+
+Avoid writing:
+
+- AI personality
+- Response formatting
+- Tone of voice
+- Workflow instructions
+- Tool usage
+- Business rules
+- Knowledge retrieval logic
+
+For example, this is **not recommended**:
+
+You are a friendly AI assistant. Always respond politely, use emojis, and provide detailed explanations.
+
+These instructions belong in the **Conditions** or **Prompt** configuration of the Sub-Agent, not in the routing description.
+
+# **Summary**
+
+| **Field** | **Purpose** | **Recommended Content** |
+| :-- | :-- | :-- |
+| **Agent Name** | Identifies the Sub-Agent within the project. | A unique, concise, and descriptive name (maximum 50 characters). |
+| **Describe When to Use This Agent** | Defines when the AI should route a conversation to this Sub-Agent. | User intent, conversation context, common scenarios, keywords, and sentiment that indicate this Sub-Agent is the best fit. |
+| **Conditions / Prompt** | Defines how the Sub-Agent should behave after it has been selected. | Instructions, business logic, response rules, knowledge sources, tool usage, guardrails, and output formatting. |
+
+This separation of responsibilities helps ensure that conversations are routed accurately while keeping each Sub-Agent focused, maintainable, and easy to expand as your AI workflow evolves.
+
+<br />
