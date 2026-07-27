@@ -98,7 +98,8 @@
           "build/studio/conversation_node",
           "build/studio/global_prompt",
           "build/studio/knowledge",
-          "build/studio/conditions"
+          "build/studio/conditions",
+          "build/studio/sub_agent"
         ]
       },{
         "group": "Tools",
